@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <form class="form" method="POST" action="{{ url_for('client') }}">
+        <input  placeholder="type" class="form-control" name="message">
+        <button id="bt" type="submit" class="btn btn-success mt-3">Send</button>
+    </form>
+        {% for message in data %}
+            <p class="display-5 mt-5">Server:  {{ message }} </p>
+        {% endfor %}
+{% endblock %}
