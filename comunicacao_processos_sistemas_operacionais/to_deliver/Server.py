@@ -11,7 +11,7 @@ class Server:
 
     @staticmethod
     def __send_message_to_client() -> bytes:
-        return b"Recebido"
+        return input().encode()
 
     def __create_socket(self) -> socket:
         sockett: socket = socket.socket()  # UDP, por default
