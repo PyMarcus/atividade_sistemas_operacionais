@@ -17,11 +17,12 @@ def server(ip: str, port: int) -> None:
     sock.listen()  # se nada é passado, é atribuido um valor alto
     print(f"Servidor escutando em {ip, port}")
     while True:
+        client, client_addr = client_socket.accept()
         threading.Thread(target=response_to_clients, args=(sock, )).start()  # loop na thread aceita varios clientes
         
 
 def response_to_clients(client_socket) -> None:
-    client, client_addr = client_socket.accept()
+    
     while True:
         print(f"Cliente {client_addr}")
         print(f"Cliente diz: {client.recv(2048).decode()}")  # recebe msg do cliente
